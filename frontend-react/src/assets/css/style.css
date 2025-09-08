@@ -8,8 +8,6 @@ body {
 }
 .bg-light-dark {
     background-color: #2B3035;
-    border: 2px solid rgb(100, 169, 180);
-
 }
 .container{
     flex: 1;
