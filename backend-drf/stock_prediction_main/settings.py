@@ -42,9 +42,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'accounts',
     'api',
+    "corsheaders",      # FOR ACCESSING THE OTHER DOMAIN LIKE REACT FRONTEND
+    'rest_framework_simplejwt',   # this is for the authentication of the user using the django rest framework ( for login and resgister)
 ]
 
 MIDDLEWARE = [
+      "corsheaders.middleware.CorsMiddleware",     # THIS IS THE MIDDLEWARE FOR LISTING THE RESPONSE 
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -125,3 +128,13 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CORS_ALLOWED_ORIGINS =[
+    'http://localhost:5173'      # this is the port where our react app is running or the frontend local host
+]
+
+REST_FRAMEWORK = {           # this is for the authentication of the user using the django rest framework ( for login and resgister)
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
