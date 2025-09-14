@@ -13,8 +13,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const navigate =useNavigate()
   const [error, setErrors] =useState('')
-
-  const {isLogedIn, setIsLogedIn} = useContext(AuthContext)
+  const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext)
 
 
   const handlelogin = async (e) => {
@@ -22,15 +21,13 @@ const Login = () => {
     setLoading(true);
 
     const userData = { username, password }
-    console.log('login_data', userData);
-
     try{
       const response = await axios.post('http://127.0.0.1:8000/api/v1/token/',userData)
       localStorage.setItem('accessToken',response.data.access)
       localStorage.setItem('refreshToken',response.data.refresh)
       console.log('login Successful');
-      setIsLogedIn(true)
-      navigate('/')
+      setIsLoggedIn(true)
+      navigate('/dashboard')
     }
     catch(error){
       console.log ('invalid creadentials')

@@ -7,9 +7,9 @@ const AuthContext = createContext();
 // through the children we can access the AUTHCONTEXT data inside the AuthProvider
 const AuthProvider = ({ children }) => {        
 
-  const [isLogedIn, setIsLogedIn] = useState( !!localStorage.getItem('accessToken') )
+  const [isLoggedIn, setIsLoggedIn] = useState( !!localStorage.getItem('accessToken') )
   return (
-    <AuthContext.Provider value={{ isLogedIn, setIsLogedIn }}>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       {children}
     </AuthContext.Provider>
   )
