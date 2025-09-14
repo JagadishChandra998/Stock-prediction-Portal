@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from decouple import config
+from datetime import timedelta     # this is for the token lifetime
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -137,4 +138,9 @@ REST_FRAMEWORK = {           # this is for the authentication of the user using 
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
+}
+
+SIMPLE_JWT = {             # this is for the lifetime of the user how long the user will be logged in or the access, refresh token is valid
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
