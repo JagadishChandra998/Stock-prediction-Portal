@@ -58,7 +58,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "stock_prediction_main.urls"
+# ROOT_URLCONF = "stock_prediction_main.urls"
+ROOT_URLCONF = "Student_Scholarship_Portal.urls"
 
 TEMPLATES = [
     {
@@ -75,8 +76,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "stock_prediction_main.wsgi.application"
-
+# WSGI_APPLICATION = "stock_prediction_main.wsgi.application"
+WSGI_APPLICATION = "Student_Scholarship_Portal.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
